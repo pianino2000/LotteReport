@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>대전 CDC UPS 화재 관련 양사 입장 및 법적 쟁점</title>
+  <style>
+    :root {
+      --lotte-red: #da291c;
+      --lotte-dark: #20242a;
+      --lotte-gray: #5f6873;
+      --line: #dfe3e8;
+      --soft: #f5f7f9;
+      --warn: #fff6e8;
+      --danger-soft: #fff1ef;
+      --blue-soft: #eef5ff;
+      --green-soft: #edf8f0;
+      --text: #1d232a;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+      color: var(--text);
+      background: #eef1f4;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 28px;
+      color: #fff;
+      background: rgba(27, 31, 36, 0.96);
+      border-bottom: 3px solid var(--lotte-red);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lotte-red);
+      font-size: 14px;
+    }
+
+    .top-actions { display: flex; gap: 8px; }
+    .btn {
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      padding: 8px 13px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .btn:hover { background: rgba(255,255,255,.16); }
+
+    .layout {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 255px minmax(0, 1fr);
+      gap: 22px;
+      padding: 24px;
+    }
+
+    aside {
+      position: sticky;
+      top: 86px;
+      height: calc(100vh - 110px);
+      overflow: auto;
+      padding: 18px 14px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(16, 24, 40, .06);
+    }
+
+    aside h3 {
+      margin: 0 0 12px;
+      padding: 0 8px 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--lotte-gray);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    aside a {
+      display: block;
+      padding: 9px 10px;
+      margin: 3px 0;
+      border-radius: 8px;
+      color: #3d4650;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    aside a:hover { background: var(--soft); color: var(--lotte-red); }
+
+    main {
+      min-width: 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(16, 24, 40, .07);
+    }
+
+    .hero {
+      position: relative;
+      padding: 52px 56px 44px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(218,41,28,.38), transparent 25%),
+        linear-gradient(135deg, #171a1f 0%, #2b3138 75%, #3b2020 100%);
+    }
+
+    .hero::after {
+      content: "LEGAL REVIEW";
+      position: absolute;
+      right: 36px;
+      bottom: 18px;
+      font-size: 44px;
+      font-weight: 900;
+      color: rgba(255,255,255,.04);
+      letter-spacing: .08em;
+    }
+
+    .hero .eyebrow {
+      color: #ffb7ae;
+      font-weight: 800;
+      letter-spacing: .06em;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      margin: 10px 0 14px;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+    }
+
+    .hero p {
+      max-width: 900px;
+      margin: 0;
+      color: #d5dbe2;
+      font-size: 17px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .meta span {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: 13px;
+    }
+
+    section {
+      padding: 40px 56px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 90px;
+    }
+
+    section:last-child { border-bottom: 0; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-no {
+      min-width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--lotte-red);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin: 24px 0 10px;
+      font-size: 19px;
+      letter-spacing: -0.025em;
+    }
+
+    p { margin: 8px 0; }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .summary-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .summary-card .label {
+      display: block;
+      color: var(--lotte-gray);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .summary-card strong {
+      font-size: 21px;
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+    }
+
+    .callout {
+      margin: 18px 0;
+      padding: 18px 20px;
+      border-left: 5px solid var(--lotte-red);
+      background: var(--danger-soft);
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .legal-logic {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 20px 0 8px;
+    }
+
+    .logic-step {
+      position: relative;
+      padding: 18px 16px;
+      min-height: 126px;
+      border-radius: 12px;
+      background: var(--blue-soft);
+      border: 1px solid #d6e4fa;
+    }
+
+    .logic-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -12px;
+      top: 42%;
+      font-size: 24px;
+      color: var(--lotte-red);
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .logic-step b {
+      display: block;
+      color: #23558a;
+      margin-bottom: 7px;
+      font-size: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 13px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #252a31;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    tr:nth-child(even) td { background: #fafbfc; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .panel.lotte { border-top: 5px solid var(--lotte-red); }
+    .panel.vendor { border-top: 5px solid #39424c; }
+
+    .panel h3 { margin-top: 0; }
+
+    ul, ol { margin: 8px 0 8px 22px; padding: 0; }
+    li { margin: 7px 0; }
+
+    .risk {
+      background: var(--warn);
+      border: 1px solid #f3d79a;
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+
+    .success {
+      background: var(--green-soft);
+      border: 1px solid #cfe7d5;
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+
+    .quote {
+      margin: 16px 0;
+      padding: 22px 24px;
+      border-radius: 12px;
+      background: #21262d;
+      color: #eef2f6;
+      font-size: 15px;
+      border-left: 6px solid var(--lotte-red);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .evidence-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .evidence-card b { color: var(--lotte-red); }
+
+    .footnotes {
+      font-size: 13px;
+      color: #59636e;
+    }
+
+    .footnotes a { color: #245b94; }
+
+    .footer {
+      padding: 24px 56px 34px;
+      font-size: 12px;
+      color: #68727e;
+      background: #f7f8fa;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #edf0f3;
+      color: #424b55;
+      font-size: 12px;
+      font-weight: 800;
+      margin-right: 4px;
+    }
+
+    @media (max-width: 1080px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { display: none; }
+      .summary-grid, .legal-logic, .evidence-grid { grid-template-columns: repeat(2, 1fr); }
+      .logic-step:not(:last-child)::after { display: none; }
+    }
+
+    @media (max-width: 720px) {
+      .topbar { padding: 12px 16px; }
+      .top-actions { display: none; }
+      .layout { padding: 0; }
+      main { border-radius: 0; border-left: 0; border-right: 0; }
+      .hero, section, .footer { padding-left: 22px; padding-right: 22px; }
+      .summary-grid, .legal-logic, .split, .evidence-grid { grid-template-columns: 1fr; }
+      h2 { font-size: 22px; }
+      table { font-size: 12px; }
+      th, td { padding: 9px 8px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .topbar, aside { display: none !important; }
+      .layout { display: block; max-width: none; padding: 0; }
+      main { box-shadow: none; border: 0; border-radius: 0; }
+      section { break-inside: avoid; }
+      .hero { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .summary-card, .panel, .logic-step, .risk, .success, .quote { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">L</div>
+      <div>롯데이노베이트 · 법적쟁점 검토 보고서</div>
+    </div>
+    <div class="top-actions">
+      <button class="btn" onclick="window.print()">인쇄 / PDF 저장</button>
+      <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">맨 위로</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <h3>Contents</h3>
+      <a href="#summary">요약 결론</a>
+      <a href="#positions">양사 입장 차이</a>
+      <a href="#legal">롯데 측 법적 논리</a>
+      <a href="#damage">3.04억 손해배상</a>
+      <a href="#weakness">롯데 측 취약점</a>
+      <a href="#support">무상지원안 반박</a>
+      <a href="#statement">핵심 주장 문안</a>
+      <a href="#actions">권고 조치</a>
+      <a href="#basis">법적 근거 및 자료</a>
+    </aside>
+
+    <main>
+      <div class="hero">
+        <div class="eyebrow">LOTTE CHILSUNG DAEJEON CDC / UPS FIRE CASE</div>
+        <h1>UPS 화재 관련<br>양사 입장 차이 및 롯데 측 법적 주장</h1>
+        <p>에이치엠파워넷 회신공문, 롯데 측 손해배상 요청 논리 및 계약·민법상 쟁점을 종합한 실무 검토 보고서</p>
+        <div class="meta">
+          <span>사건: 대전 CDC UPS 화재</span>
+          <span>청구액: 약 3.04억 원</span>
+          <span>쟁점: 하자·인과관계·손해액</span>
+          <span>검토기준일: 2026.07</span>
+        </div>
+      </div>
+
+      <section id="summary">
+        <div class="section-title">
+          <div class="section-no">01</div>
+          <h2>요약 결론</h2>
+        </div>
+
+        <div class="callout">
+          현재 에이치엠파워넷은 화재 발생 사실과 복구 협조 사실은 인정하지만, 법률상·계약상 손해배상책임은 인정하지 않고 있습니다. 롯데 측이 승소 가능성을 높이려면 발화지점, 시공범위, 설비하자, 상당인과관계, 실제 손해액을 하나의 증거사슬로 연결해야 합니다.
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span class="label">롯데의 핵심 주장</span>
+            <strong>계약상 불완전이행 및 하자책임</strong>
+          </div>
+          <div class="summary-card">
+            <span class="label">상대방 핵심 방어</span>
+            <strong>원인·인과관계·손해액 미입증</strong>
+          </div>
+          <div class="summary-card">
+            <span class="label">최대 쟁점</span>
+            <strong>전원측 단자의 실제 시공 주체</strong>
+          </div>
+          <div class="summary-card">
+            <span class="label">필수 보완</span>
+            <strong>객관적 감정·지급증빙·공사경계</strong>
+          </div>
+        </div>
+
+        <div class="legal-logic">
+          <div class="logic-step"><b>① 공급·시공 범위</b>발화지점이 에이치엠파워넷의 직접 공사 범위에 포함되는지 확인</div>
+          <div class="logic-step"><b>② 하자 또는 과실</b>단자 체결, 배선, 차단기 선정, 장비결함 등 구체적 결함 규명</div>
+          <div class="logic-step"><b>③ 상당인과관계</b>해당 결함이 화재와 2차 피해를 직접 유발했는지 입증</div>
+          <div class="logic-step"><b>④ 손해액</b>약 3.04억 원이 실제 지급된 필요·상당한 복구비임을 입증</div>
+        </div>
+      </section>
+
+      <section id="positions">
+        <div class="section-title">
+          <div class="section-no">02</div>
+          <h2>양사 입장 차이</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width:15%">쟁점</th>
+              <th style="width:42.5%">롯데 측 입장</th>
+              <th style="width:42.5%">에이치엠파워넷 입장</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>화재 원인</b></td>
+              <td>소방서 조사에서 UPS실 과전류차단기 전원측 단자 부근 및 전기적 요인이 확인된 만큼 공급·시공 설비의 하자 가능성이 높음</td>
+              <td>‘전기적 요인’은 전기적 특성에 관련된 가능성일 뿐, 자사 설비 하자나 시공상 과실이 입증된 것은 아님</td>
+            </tr>
+            <tr>
+              <td><b>발화지점</b></td>
+              <td>발화지점이 상대방의 공급·시공 범위라면 계약상 책임 발생</td>
+              <td>최초 발화점, 결함 발생 경위, 직접 인과관계가 명확히 확인되지 않음</td>
+            </tr>
+            <tr>
+              <td><b>준공 후 관리</b></td>
+              <td>준공 후라도 잠재하자와 시공결함에 대한 하자책임은 존속</td>
+              <td>현장 관리권한이 없었고 운영·유지관리·추가 작업 여부를 확인할 수 없었음</td>
+            </tr>
+            <tr>
+              <td><b>시방서 준수</b></td>
+              <td>시방서 준수와 별개로 안전하게 작동하는 설비를 공급·시공할 의무가 있음</td>
+              <td>롯데가 제공한 구매시방서와 관련 설계기준에 따라 적법하게 시공함</td>
+            </tr>
+            <tr>
+              <td><b>손해액</b></td>
+              <td>복구 11개 공종, 281명 투입 등 약 3.04억 원의 실제 손해 발생</td>
+              <td>산정근거, 지급내역, 상당인과관계 및 손해범위 자료가 충분하지 않음</td>
+            </tr>
+            <tr>
+              <td><b>해결방안</b></td>
+              <td>장래 무상보증은 현재 발생한 복구비 손해배상과 별개</td>
+              <td>10년 하자보증, 배터리·UPS 무상교체를 통한 협력적 해결 제안</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="split">
+          <div class="panel lotte">
+            <h3>롯데가 강조해야 할 사실</h3>
+            <ul>
+              <li>발화지점이 상대방의 장비 또는 시공구간임</li>
+              <li>정상 운전 중 화재가 발생했고 외부 개입이 없음</li>
+              <li>복구비는 공장 정상화에 불가피하게 지출됨</li>
+              <li>무상지원안은 현재 손해를 보전하지 못함</li>
+            </ul>
+          </div>
+          <div class="panel vendor">
+            <h3>상대방이 다투는 부분</h3>
+            <ul>
+              <li>전기적 요인과 자사 하자 사이의 비약</li>
+              <li>준공 후 제3자 작업 및 운영관리 가능성</li>
+              <li>제조사 결함 가능성 및 책임분담</li>
+              <li>3.04억 원의 객관성·상당성·실지급 여부</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="legal">
+        <div class="section-title">
+          <div class="section-no">03</div>
+          <h2>롯데 측 법적 논리</h2>
+        </div>
+
+        <h3>1) 주된 청구는 계약상 채무불이행으로 구성</h3>
+        <p>본 건은 UPS·배터리 설비의 공급·시공 계약이 존재하므로, 불법행위보다 <b>계약상 불완전이행, 하자보증 위반 및 손해배상 조항</b>을 중심으로 주장하는 것이 타당합니다.</p>
+        <div class="quote">
+          에이치엠파워넷은 단순 장비 납품자가 아니라 정상적이고 안전하게 운전되는 UPS·배터리 설비를 공급·시공할 의무가 있으며, 해당 설비 또는 접속부의 하자로 화재가 발생했다면 계약 목적에 부합하지 않는 불완전이행에 해당한다.
+        </div>
+
+        <h3>2) 준공·인수는 잠재하자까지 면책시키지 않음</h3>
+        <p>준공 이후 관리권한이 없었다는 사정은 상대방의 방어사유가 될 수 있으나, 단자 체결 불량, 러그 압착 불량, 정격 선정 오류, 접속부 절연 불량 등 시공 당시 존재한 잠재하자까지 소멸시키는 사유는 아닙니다.</p>
+        <div class="risk">
+          다만 준공 후 제3자가 배선 변경·단자 재체결·과부하 운전 등을 수행한 정황이 확인되면 과실상계 또는 인과관계 단절 문제가 발생할 수 있으므로 출입기록, 작업허가서, 유지보수 이력 확보가 필수입니다.
+        </div>
+
+        <h3>3) 시방서 준수만으로 면책되지 않음</h3>
+        <p>전문 UPS 시공업체라면 단순 시방서 이행을 넘어 안전성·적합성·정상작동에 대한 검토의무가 있다고 주장할 수 있습니다. 시방 또는 발주 지시가 부적절했다면 사전에 위험을 통보했어야 하며, 이를 알고도 이의 없이 시공했다면 책임을 피하기 어렵습니다.</p>
+
+        <h3>4) 제조사 책임과 공급·시공사의 계약책임은 별개</h3>
+        <p>UPS 또는 배터리 자체의 제조상 결함이 존재하더라도, 계약 상대방인 에이치엠파워넷의 공급·시공 책임이 당연히 소멸하는 것은 아닙니다. 롯데는 에이치엠파워넷을 상대로 계약책임을 청구하고, 에이치엠파워넷은 제조사와 내부적으로 구상·책임분담을 할 수 있다는 논리가 가능합니다.</p>
+      </section>
+
+      <section id="damage">
+        <div class="section-title">
+          <div class="section-no">04</div>
+          <h2>약 3.04억 원 손해배상 청구 논리</h2>
+        </div>
+
+        <div class="success">
+          소손 설비 철거·재설치, 그을음 제거, 소방수 처리, 전산·통신·전력설비 복구, 검사·시험·임시전원 등은 화재와 직접 관련된 필요·상당한 비용임이 입증되면 통상손해로 인정될 가능성이 높습니다.
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>필요 증빙</th><th>입증 목적</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>업체별 견적서·계약서·세금계산서</td><td>복구공사 범위, 단가, 실제 거래 여부</td></tr>
+            <tr><td>계좌이체·지급결의서</td><td>롯데이노베이트가 실제로 비용을 부담했는지 확인</td></tr>
+            <tr><td>작업일보·출입기록·인원명부</td><td>281명 투입의 사실 및 필요성</td></tr>
+            <tr><td>화재 전후 사진·도면</td><td>손상이 화재로 인해 발생했는지 확인</td></tr>
+            <tr><td>원상복구·성능개선 구분표</td><td>화재 이전보다 성능을 높인 개선비용 제외</td></tr>
+            <tr><td>보험금 수령내역</td><td>중복배상 방지 및 순손해 산정</td></tr>
+            <tr><td>롯데칠성과의 정산자료</td><td>실제 손해귀속 및 청구권자 적격 확인</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="weakness">
+        <div class="section-title">
+          <div class="section-no">05</div>
+          <h2>롯데 측 주장의 취약점과 보완사항</h2>
+        </div>
+
+        <div class="evidence-grid">
+          <div class="evidence-card">
+            <b>① 공사경계</b>
+            <p>과전류차단기 전원측 단자가 실제로 누구의 시공범위인지가 가장 중요합니다.</p>
+          </div>
+          <div class="evidence-card">
+            <b>② 원인규명</b>
+            <p>‘전기적 요인’ 문구만으로는 부족하며 단락흔, 아크흔, 체결불량 등 구체적 결함이 필요합니다.</p>
+          </div>
+          <div class="evidence-card">
+            <b>③ 제3자 개입</b>
+            <p>준공 후 배선 변경, 단자 재체결, 비정상 운전 여부를 기록으로 배제해야 합니다.</p>
+          </div>
+          <div class="evidence-card">
+            <b>④ 손해액 적정성</b>
+            <p>개선공사, 중복비용, 과다투입 인건비가 포함됐는지 분리해야 합니다.</p>
+          </div>
+          <div class="evidence-card">
+            <b>⑤ 청구권자</b>
+            <p>피해 소유자는 롯데칠성, 계약당사자는 롯데이노베이트일 수 있어 손해귀속을 정리해야 합니다.</p>
+          </div>
+          <div class="evidence-card">
+            <b>⑥ 시효·증거화</b>
+            <p>내용증명, 감정자료, 증빙목록을 일자별로 체계화해 향후 소송에 대비해야 합니다.</p>
+          </div>
+        </div>
+
+        <div class="risk">
+          전원측 단자가 타 전기공사업체의 공사범위이거나, 화재조사서가 단순히 ‘전기적 요인’만 기재하고 있는 경우 에이치엠파워넷 단독책임 주장은 약해질 수 있습니다.
+        </div>
+      </section>
+
+      <section id="support">
+        <div class="section-title">
+          <div class="section-no">06</div>
+          <h2>장래 무상지원안에 대한 반박</h2>
+        </div>
+
+        <ol>
+          <li>장래 배터리·UPS 교체는 일정 조건이 충족되어야 발생하는 미래의 경제적 이익입니다.</li>
+          <li>약 3.04억 원은 이미 발생하고 지급된 현재의 복구비용입니다.</li>
+          <li>장래 지원안의 실질가치는 계약 유지, 장비 수명, 사업장 운영기간에 따라 달라집니다.</li>
+          <li>롯데가 손해배상에 갈음하는 화해안으로 명시적으로 수락하지 않았다면 상대방이 일방적으로 변제방법을 바꿀 수 없습니다.</li>
+        </ol>
+
+        <div class="quote">
+          귀사의 무상보증 및 장래 교체지원 제안은 협력 차원의 별도 제안으로 검토할 수 있으나, 이미 발생한 화재 복구비용에 대한 계약상 손해배상채무를 대체하거나 소멸시키는 효력은 없습니다. 당사는 이를 손해배상에 갈음하는 합의로 수락한 사실이 없습니다.
+        </div>
+      </section>
+
+      <section id="statement">
+        <div class="section-title">
+          <div class="section-no">07</div>
+          <h2>롯데 측 핵심 주장 문안</h2>
+        </div>
+
+        <div class="quote">
+          본 건 청구는 단순히 UPS실에서 화재가 발생하였다는 사정만을 근거로 하는 것이 아닙니다. 귀사가 공급·시공한 UPS 및 배터리 설비의 공사 범위 중 과전류차단기 전원측 단자 부근이 발화지점으로 조사되었고, 해당 설비가 정상 운전되는 과정에서 화재가 발생하였으며, 화재 전 제3자의 개조·비정상 운전 등 별도의 외부 원인이 확인되지 않았다는 객관적 자료를 근거로 합니다.<br><br>
+          이는 안전하고 정상적으로 작동하는 설비를 공급·시공할 계약상 의무 및 하자보증 의무의 불완전이행에 해당합니다. 준공 후 현장 관리권한이 없었다는 사정이나 제조사가 별도로 존재한다는 사정만으로 귀사의 시공·접속·장비선정 및 잠재하자에 관한 계약상 책임이 면제되는 것은 아닙니다.<br><br>
+          당사가 청구하는 약 3.04억 원은 화재와 상당인과관계가 있는 직접 복구비용으로서 공종별 산출내역, 계약서, 세금계산서, 작업일보 및 지급증빙을 통해 입증할 예정입니다. 귀사의 장래 무상보증 및 교체지원 제안은 이미 발생한 손해를 배상하는 것과 법적·경제적 성격이 다르며, 당사가 이를 손해배상에 갈음하는 합의로 수락한 사실도 없습니다.
+        </div>
+      </section>
+
+      <section id="actions">
+        <div class="section-title">
+          <div class="section-no">08</div>
+          <h2>권고 조치</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th style="width:18%">우선순위</th><th>권고사항</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="tag">즉시</span></td><td>소방서 화재현장조사서 원본, 현장사진, CCTV, UPS 이벤트로그, 배터리 BMS로그 확보</td></tr>
+            <tr><td><span class="tag">즉시</span></td><td>과전류차단기·전원측 단자·케이블·UPS 입력구간의 시공주체를 도면과 발주내역으로 확정</td></tr>
+            <tr><td><span class="tag">1주 이내</span></td><td>전기화재 전문기관의 추가 감정 실시 및 단락흔·접촉불량·체결토크 분석</td></tr>
+            <tr><td><span class="tag">1주 이내</span></td><td>3.04억 원을 공종별로 직접복구비·개선비·간접비로 구분하고 지급증빙 연결</td></tr>
+            <tr><td><span class="tag">협상 전</span></td><td>롯데칠성과 롯데이노베이트 사이의 손해귀속 및 정산관계를 문서화</td></tr>
+            <tr><td><span class="tag">협상 전</span></td><td>제조사·시공사·타 전기업체를 포함한 공동감정 또는 책임분담 협상안 마련</td></tr>
+            <tr><td><span class="tag">분쟁 대비</span></td><td>내용증명으로 손해배상 청구 및 자료목록을 확정하고, 시효중단을 위한 후속 법적 절차 검토</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="basis">
+        <div class="section-title">
+          <div class="section-no">09</div>
+          <h2>법적 근거 및 검토자료</h2>
+        </div>
+
+        <div class="footnotes">
+          <p><b>계약상 근거</b> : 매입계약서 제6조 하자보증, 제10조 목적물 멸실·훼손 책임, 제12조 손해배상 조항</p>
+          <p><b>민법상 근거</b> : 제390조 채무불이행과 손해배상, 제391조 이행보조자, 제393조 손해배상의 범위, 제667조 수급인의 담보책임, 제669조 도급인이 제공한 재료·지시로 인한 하자, 제174조 최고와 시효</p>
+          <p><b>기타</b> : 제조물책임법상 제조물의 결함으로 인한 재산손해 책임 검토</p>
+          <p><b>검토자료</b> : 에이치엠파워넷 2026.06.25 지원방안 공문, 2026.07.13 원안 수용 재요청 회신, 롯데 내부 준법검토 의견, 화재현장조사서 및 복구비 산정자료</p>
+        </div>
+      </section>
+
+      <div class="footer">
+        본 문서는 현재 제공된 공문과 검토자료를 기반으로 작성한 실무 검토용 자료입니다. 최종 법적 책임 판단을 위해서는 매입계약서 원문, 공사범위 도면, 화재현장조사서 전체, 복구비 산정 및 지급증빙에 대한 추가 검토가 필요합니다.
+      </div>
+    </main>
+  </div>
+</body>
+</html>

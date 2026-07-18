@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>['명동스퀘어' 출범 및 옥외광고물 자유표시구역 조성 보고서]</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 48px 40px;
+            position: relative;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            font-weight: 400;
+        }
+
+        .meta-bar {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .meta-bar span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-bar strong {
+            color: #334155;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .summary-box {
+            background: #eff6ff;
+            border-left: 5px solid #3b82f6;
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
+        }
+
+        .summary-box h3 {
+            color: #1e3a8a;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .summary-box li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .summary-box li::before {
+            content: "•";
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border-color: #cbd5e1;
+        }
+
+        .card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        p.text-body {
+            margin-bottom: 16px;
+            color: #475569;
+            text-align: justify;
+        }
+
+        .timeline-section {
+            margin: 30px 0;
+            position: relative;
+            padding-left: 28px;
+            border-left: 2px solid #cbd5e1;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -35px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0 40px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #f8fafc;
+            font-weight: 700;
+            color: #334155;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        td {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, #dbeafe 0%, #dbeafe 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .footer {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 24px 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 15px 10px; }
+            .header { padding: 32px 20px; }
+            .header h1 { font-size: 1.6rem; }
+            .content { padding: 24px 20px; }
+            .meta-bar { padding: 12px 20px; gap: 12px; }
+            th, td { padding: 12px 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="badge">옥외광고물 자유표시구역 프로젝트</span>
+            <h1>'명동스퀘어(Myeongdong Square)'<br>재도약 및 조성 사업 보고서</h1>
+            <p>한국의 타임스퀘어를 향한 명동 관광특구의 미디어 랜드마크 변신 계획</p>
+        </header>
+
+        <div class="meta-bar">
+            <span>📅 <strong>보도 일자:</strong> 2024년 6월 4일</span>
+            <span>📺 <strong>출처:</strong> 딜라이브 뉴스 (중구)</span>
+            <span>📍 <strong>대상 지역:</strong> 서울 중구 명동 관광특구 일대</span>
+        </div>
+
+        <main class="content">
+            <section class="summary-box">
+                <h3>📌 보고서 핵심 요약</h3>
+                <ul>
+                    <li><strong>명동스퀘어 출범:</strong> 제2기 옥외광고물 자유표시구역으로 선정된 명동 일대가 '명동스퀘어'라는 공식 브랜드를 론칭함 [00:00:00].</li>
+                    <li><strong>뉴욕 타임스퀘어형 상권 조성:</strong> 향후 10년에 걸쳐 백화점 및 주요 빌딩에 다양한 크기와 형태의 대형 디스플레이와 미디어 폴이 설치됨 [00:00:10].</li>
+                    <li><strong>단계별 구축 일정:</strong> 2024년 11월 신세계백화점 본점을 시작으로, 내년 상반기 하나은행, 롯데백화점, 교원빌딩 등으로 확대 추진됨 [00:00:47].</li>
+                    <li><strong>콘텐츠 통합 관리 시스템:</strong> 단순 상업 광고를 넘어 수준 높은 예술 콘텐츠(미디어아트)를 상영하여 문화적 랜드마크 기능을 강화함 [00:00:58].</li>
+                </ul>
+            </section>
+
+            <section class="grid-cards">
+                <div class="card">
+                    <div class="icon">🏙️</div>
+                    <h4>'명동스퀘어'의 의미</h4>
+                    <p><span class="highlight-text">'대한민국을 빛나게 할 4개의 광장을 품은 명동'</span>이라는 뜻으로, 명동 내에 각기 다른 4가지 빛을 내는 테마 광장이 조성됩니다 [00:00:35].</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🖥️</div>
+                    <h4>첨단 미디어 인프라</h4>
+                    <p>초대형 디스플레이, 파노라마 전광판, 거리의 미디어 폴(Media Pole) 등이 어우러져 압도적인 시각적 경험을 제공합니다 [00:00:22].</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🎨</div>
+                    <h4>예술과 광고의 융합</h4>
+                    <p>콘텐츠 통합 관리 시스템을 구축하여 상업성 광고뿐 아니라 고품격 예술 미디어아트가 송출되는 디지털 갤러리로 운영됩니다 [00:00:58].</p>
+                </div>
+            </section>
+
+            <h2>1. 추진 배경 및 개요</h2>
+            <p class="text-body">
+                서울 중구 명동 관광특구는 지난 연말 <strong>'제2기 옥외광고물 자유표시구역'</strong>으로 최종 지정되었습니다 [00:00:10]. 이에 따라 중구와 민관 합동협의회는 사업의 본격적인 출범을 알리며, 글로벌 관광 명소로서의 브랜드 가치를 높이기 위해 <strong>'명동스퀘어(Myeongdong Square)'</strong>라는 새 네이밍과 비전을 공식 발표했습니다 [00:00:22].
+            </p>
+            <p class="text-body">
+                옥외광고물 자유표시구역 규제 완화를 통해 향후 10년 동안 뉴욕의 타임스퀘어를 연상시키는 초대형·최첨단 미디어 전광판들이 명동 주요 상권 건물 외벽에 다채롭게 설치될 예정입니다 [00:00:10].
+            </p>
+
+            <h2>2. 단계별 설치 및 구축 로드맵</h2>
+            <div class="timeline-section">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023년 말 (완료)</div>
+                    <div class="timeline-title">제2기 옥외광고물 자유표시구역 지정</div>
+                    <div class="timeline-desc">명동 관광특구, 광화문 광장, 부산 해운대 일대가 제2기 구역으로 신규 선정 [00:01:09].</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024년 11월 (1단계 시작)</div>
+                    <div class="timeline-title">신세계백화점 본점 초대형 전광판 가동</div>
+                    <div class="timeline-desc">'명동스퀘어' 조성 사업의 첫 출발점으로 신세계백화점에 외벽 미디어 디스플레이 설치 및 운영 시작 [00:00:47].</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025년 상반기 (확대기)</div>
+                    <div class="timeline-title">주요 거점 빌딩 디스플레이 확대 적용</div>
+                    <div class="timeline-desc">하나은행, 롯데백화점, 교원빌딩 등 명동 상권 중심부 핵심 건축물들에 대형 전광판 및 미디어 폴 순차적 구축 [00:00:47].</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">향후 10년간 (완성기)</div>
+                    <div class="timeline-title">4대 광장 조성 및 글로벌 미디어 랜드마크 도약</div>
+                    <div class="timeline-desc">명동 곳곳에 4가지 테마의 빛을 내는 광장이 완성되며, 콘텐츠 통합 관리 시스템을 통한 수준 높은 예술 영상 상영 [00:00:35].</div>
+                </div>
+            </div>
+
+            <h2>3. 국내 옥외광고물 자유표시구역 현황 비교</h2>
+            <p class="text-body">
+                옥외광고물 자유표시구역 제도는 2016년 1기 지정을 시작으로 현재 2기 구역까지 확대되었습니다. 명동스퀘어는 1기 코엑스몰의 성공 사례를 바탕으로 서울 도심권 관광특구의 경쟁력을 극대화할 것으로 기대됩니다 [00:00:58].
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>지정 지역</th>
+                        <th>지정 시기</th>
+                        <th>주요 특징 및 향후 계획</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>제1기</strong></td>
+                        <td>서울 강남 코엑스몰 일대</td>
+                        <td>2016년</td>
+                        <td>국내 최초 옥외광고물 자유표시구역 (K-POP 스퀘어 미디어 등 운영) [00:01:09]</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>제2기</strong></td>
+                        <td><strong>서울 중구 명동 관광특구<br>('명동스퀘어')</strong></td>
+                        <td>2023년 말</td>
+                        <td>2024년 11월 신세계백화점을 시작으로 10년간 4대 테마 광장 조성 [00:00:10]</td>
+                    </tr>
+                    <tr>
+                        <td>서울 광화문 광장 일대</td>
+                        <td>2023년 말</td>
+                        <td>2029년까지 교보빌딩, KT빌딩 등 광화문 사거리 주변 광고물 설치 [00:01:20]</td>
+                    </tr>
+                    <tr>
+                        <td>부산 해운대 일대</td>
+                        <td>2023년 말</td>
+                        <td>지역 대표 해양 관광 거점 연계 미디어 조성 [00:01:09]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. 기대 효과 및 시사점</h2>
+            <p class="text-body">
+                <strong>① 글로벌 관광 상권으로서의 경쟁력 강화:</strong> 명동이 기존의 쇼핑 중심지에서 벗어나, 압도적인 디지털 미디어 아트를 체험할 수 있는 체류형 관광 명소로 진화합니다.
+            </p>
+            <p class="text-body">
+                <strong>② 체계적인 영상 콘텐츠 관리:</strong> 무분별한 상업 광고의 난립을 방지하기 위해 <em>'콘텐츠 통합 관리 시스템'</em>을 도입함으로써, 공공성과 상업성, 예술성이 균형을 이루는 도시 경관을 조성할 수 있습니다 [00:00:58].
+            </p>
+        </main>
+
+        <footer class="footer">
+            <p>본 보고서는 유튜브 영상 '딜라이브 뉴스 [중구]: 명동스퀘어 새 이름 달고 재도약' 내용을 바탕으로 작성되었습니다.</p>
+            <p>Copyright © 2024 Myeongdong Square Report. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

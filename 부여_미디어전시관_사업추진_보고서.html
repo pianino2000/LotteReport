@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>부여 미디어 전시관 사업 추진 보고</title>
+  <style>
+    :root{
+      --lotte:#da291c;
+      --lotte-dark:#a91f16;
+      --ink:#18212f;
+      --muted:#667085;
+      --line:#d9dee7;
+      --soft:#f5f7fa;
+      --soft-red:#fff2f1;
+      --navy:#243248;
+      --blue:#1e5aa8;
+      --green:#17805c;
+      --orange:#c86b16;
+      --shadow:0 10px 30px rgba(23,34,49,.08);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:#edf0f4;
+      font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+      line-height:1.55;
+      word-break:keep-all;
+    }
+
+    .page{
+      width:min(1180px, calc(100% - 28px));
+      margin:22px auto;
+      background:#fff;
+      box-shadow:var(--shadow);
+      border-radius:18px;
+      overflow:hidden;
+    }
+
+    .hero{
+      position:relative;
+      padding:46px 54px 40px;
+      color:#fff;
+      background:
+        radial-gradient(circle at 83% 25%, rgba(255,255,255,.16), transparent 24%),
+        linear-gradient(125deg, #161f2e 0%, #2a374c 58%, #b3261e 100%);
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      right:-70px;
+      bottom:-100px;
+      width:280px;
+      height:280px;
+      border:42px solid rgba(255,255,255,.08);
+      border-radius:50%;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:20px;
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.12em;
+    }
+
+    .eyebrow .mark{
+      width:9px;
+      height:9px;
+      background:#fff;
+      border-radius:50%;
+      box-shadow:17px 0 0 rgba(255,255,255,.45);
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:40px;
+      line-height:1.2;
+      letter-spacing:-.04em;
+    }
+
+    .subtitle{
+      margin:0;
+      max-width:760px;
+      color:rgba(255,255,255,.82);
+      font-size:17px;
+    }
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:28px;
+    }
+
+    .hero-meta span{
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .content{padding:34px 46px 48px}
+
+    .alert{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      margin-bottom:24px;
+      padding:18px 20px;
+      border-left:5px solid var(--lotte);
+      border-radius:12px;
+      background:var(--soft-red);
+    }
+
+    .alert .icon{
+      flex:0 0 auto;
+      width:30px;
+      height:30px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:var(--lotte);
+      border-radius:50%;
+      font-weight:900;
+    }
+
+    .alert strong{color:var(--lotte-dark)}
+
+    .section{
+      margin-top:30px;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:0 0 16px;
+      font-size:23px;
+      letter-spacing:-.03em;
+    }
+
+    .section-title .num{
+      display:grid;
+      place-items:center;
+      width:34px;
+      height:34px;
+      color:#fff;
+      background:var(--navy);
+      border-radius:10px;
+      font-size:15px;
+    }
+
+    .grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+
+    .card{
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+    }
+
+    .card.soft{background:var(--soft)}
+    .card.emphasis{
+      border-color:#f3b7b1;
+      background:var(--soft-red);
+    }
+
+    .kpi-label{
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .kpi-value{
+      margin-top:6px;
+      font-size:29px;
+      line-height:1.15;
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+
+    .kpi-sub{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .budget-wrap{
+      display:grid;
+      grid-template-columns:290px 1fr;
+      gap:24px;
+      align-items:center;
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+
+    .donut{
+      width:230px;
+      height:230px;
+      margin:auto;
+      position:relative;
+      border-radius:50%;
+      background:conic-gradient(
+        var(--navy) 0 52.63%,
+        var(--blue) 52.63% 68.95%,
+        var(--orange) 68.95% 94.74%,
+        var(--green) 94.74% 100%
+      );
+    }
+
+    .donut:before{
+      content:"";
+      position:absolute;
+      inset:38px;
+      background:#fff;
+      border-radius:50%;
+    }
+
+    .donut-center{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-content:center;
+      text-align:center;
+      z-index:2;
+    }
+
+    .donut-center b{
+      font-size:34px;
+      line-height:1;
+      letter-spacing:-.05em;
+    }
+
+    .donut-center span{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .legend{
+      display:grid;
+      gap:11px;
+    }
+
+    .legend-item{
+      display:grid;
+      grid-template-columns:12px 1fr auto;
+      gap:10px;
+      align-items:center;
+      padding-bottom:10px;
+      border-bottom:1px dashed var(--line);
+    }
+
+    .legend-item:last-child{border-bottom:0}
+    .legend-dot{width:11px;height:11px;border-radius:3px}
+    .legend-title{font-weight:800}
+    .legend-desc{color:var(--muted);font-size:12px}
+    .legend-value{font-weight:900;font-size:17px}
+
+    .flow{
+      display:grid;
+      grid-template-columns:1.1fr 54px 1.1fr 54px 1.35fr;
+      gap:10px;
+      align-items:stretch;
+    }
+
+    .flow-card{
+      padding:20px 18px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:var(--soft);
+      text-align:center;
+    }
+
+    .flow-card.red{
+      border-color:#f0b4ae;
+      background:var(--soft-red);
+    }
+
+    .flow-card .tag{
+      display:inline-block;
+      margin-bottom:8px;
+      padding:4px 9px;
+      color:#fff;
+      background:var(--navy);
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+    }
+
+    .flow-card.red .tag{background:var(--lotte)}
+    .flow-card h3{margin:0 0 6px;font-size:18px}
+    .flow-card p{margin:0;color:var(--muted);font-size:13px}
+    .arrow{
+      display:grid;
+      place-items:center;
+      color:#98a2b3;
+      font-size:30px;
+      font-weight:400;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .mini-title{
+      margin:0 0 12px;
+      font-size:17px;
+      font-weight:900;
+    }
+
+    .bullet{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .bullet li{
+      position:relative;
+      padding:8px 0 8px 20px;
+      border-bottom:1px dashed #e3e7ee;
+    }
+
+    .bullet li:last-child{border-bottom:0}
+    .bullet li:before{
+      content:"";
+      position:absolute;
+      left:1px;
+      top:17px;
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--lotte);
+    }
+
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+
+    .timeline-step{
+      position:relative;
+      padding:18px 16px;
+      border-top:4px solid var(--navy);
+      border-radius:10px;
+      background:var(--soft);
+    }
+
+    .timeline-step.red{
+      border-top-color:var(--lotte);
+      background:var(--soft-red);
+    }
+
+    .timeline-step .date{
+      color:var(--muted);
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .timeline-step b{
+      display:block;
+      margin:6px 0 5px;
+      font-size:16px;
+    }
+
+    .timeline-step p{margin:0;color:var(--muted);font-size:12px}
+
+    .decision{
+      display:grid;
+      grid-template-columns:64px 1fr auto;
+      gap:16px;
+      align-items:center;
+      padding:22px;
+      border:2px solid var(--lotte);
+      border-radius:16px;
+      background:linear-gradient(90deg, #fff7f6 0%, #fff 70%);
+    }
+
+    .decision .badge{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:var(--lotte);
+      border-radius:16px;
+      font-size:26px;
+      font-weight:900;
+    }
+
+    .decision h3{
+      margin:0 0 4px;
+      color:var(--lotte-dark);
+      font-size:22px;
+      letter-spacing:-.03em;
+    }
+
+    .decision p{margin:0;color:var(--muted)}
+    .decision .action{
+      padding:10px 14px;
+      color:#fff;
+      background:var(--lotte);
+      border-radius:10px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .note{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:10px;
+      color:#3d4a5c;
+      background:#eef3f8;
+      font-size:13px;
+    }
+
+    .footer{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:18px 46px 22px;
+      color:#98a2b3;
+      background:#f8f9fb;
+      border-top:1px solid var(--line);
+      font-size:12px;
+    }
+
+    @media (max-width:900px){
+      .hero{padding:36px 26px}
+      h1{font-size:32px}
+      .content{padding:28px 22px 38px}
+      .grid-4,.grid-3,.grid-2,.timeline,.split{grid-template-columns:1fr}
+      .budget-wrap{grid-template-columns:1fr}
+      .flow{grid-template-columns:1fr}
+      .arrow{transform:rotate(90deg)}
+      .decision{grid-template-columns:54px 1fr}
+      .decision .action{grid-column:1/-1;text-align:center}
+      .footer{padding:16px 22px;flex-direction:column}
+    }
+
+    @media print{
+      @page{size:A4 landscape;margin:8mm}
+      body{background:#fff}
+      .page{
+        width:100%;
+        margin:0;
+        border-radius:0;
+        box-shadow:none;
+      }
+      .hero{padding:28px 38px 25px}
+      h1{font-size:32px}
+      .content{padding:22px 34px 28px}
+      .section{margin-top:22px}
+      .card{break-inside:avoid}
+      .footer{padding:12px 34px}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow"><span class="mark"></span> EXECUTIVE BUSINESS REPORT</div>
+      <h1>부여 미디어 전시관 사업 추진 보고</h1>
+      <p class="subtitle">
+        총사업비 190억 원의 투자·발주 구조를 명확히 하고, 호텔 투자분 중
+        H/W 사업을 그룹사에 분리 배정하여 사업 안정성과 수행 경쟁력을 확보하기 위한 추진안
+      </p>
+      <div class="hero-meta">
+        <span>보고 기준일 : 2026년 7월</span>
+        <span>발주 목표 : 2026년 11월 이전</span>
+        <span>운영 계약 : 향후 별도 추진</span>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="alert">
+        <div class="icon">!</div>
+        <div>
+          <strong>명칭 유의사항</strong><br/>
+          본 사업의 공식 명칭은 <b>“부여 미디어 전시관”</b>이며,
+          대내외 보고 및 문서에서 <b>“부여Deep”이라는 표현은 사용하지 않는다.</b>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">1</span> 사업 개요</h2>
+        <div class="grid grid-4">
+          <div class="card soft">
+            <div class="kpi-label">총사업비</div>
+            <div class="kpi-value">190억 원</div>
+            <div class="kpi-sub">호텔 180억 + 엑소비스 10억</div>
+          </div>
+          <div class="card">
+            <div class="kpi-label">호텔 투자분</div>
+            <div class="kpi-value">180억 원</div>
+            <div class="kpi-sub">건축·H/W·콘텐츠/인테리어 구성</div>
+          </div>
+          <div class="card">
+            <div class="kpi-label">전시 관련 발주분</div>
+            <div class="kpi-value">80억 원</div>
+            <div class="kpi-sub">H/W 31억 + 콘텐츠/인테리어 49억</div>
+          </div>
+          <div class="card emphasis">
+            <div class="kpi-label">발주 예정 시기</div>
+            <div class="kpi-value">'26.11 이전</div>
+            <div class="kpi-sub">H/W·콘텐츠 등 일괄 발주 예정</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">2</span> 총예산 구성</h2>
+        <div class="budget-wrap">
+          <div class="donut">
+            <div class="donut-center">
+              <b>190억</b>
+              <span>총 투자예산</span>
+            </div>
+          </div>
+          <div class="legend">
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#243248"></span>
+              <div>
+                <div class="legend-title">건축 시공</div>
+                <div class="legend-desc">호텔 투자분 내 건축 공사</div>
+              </div>
+              <div class="legend-value">100억</div>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#1e5aa8"></span>
+              <div>
+                <div class="legend-title">H/W 구축</div>
+                <div class="legend-desc">그룹사 배정 추진 대상</div>
+              </div>
+              <div class="legend-value">31억</div>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#c86b16"></span>
+              <div>
+                <div class="legend-title">콘텐츠·인테리어 등</div>
+                <div class="legend-desc">호텔 투자분 중 엑소비스 배정</div>
+              </div>
+              <div class="legend-value">49억</div>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#17805c"></span>
+              <div>
+                <div class="legend-title">엑소비스 자체 투자</div>
+                <div class="legend-desc">엑소비스가 자체 계약·진행</div>
+              </div>
+              <div class="legend-value">10억</div>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          ※ 운영비는 상기 190억 원에 포함하지 않으며, 전시관 구축 이후 운영 범위·기간·비용을 별도 협의하여 계약한다.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">3</span> 권고 발주 구조</h2>
+        <div class="flow">
+          <div class="flow-card">
+            <span class="tag">자체 수행</span>
+            <h3>엑소비스 투자분 10억</h3>
+            <p>엑소비스가 자체 사업으로 별도 진행</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="flow-card">
+            <span class="tag">호텔 배정</span>
+            <h3>콘텐츠·인테리어 49억</h3>
+            <p>50억 미만으로 배정하여 내부 투자심의 등 절차 부담 최소화</p>
+          </div>
+          <div class="arrow">＋</div>
+          <div class="flow-card red">
+            <span class="tag">그룹사 배정</span>
+            <h3>H/W 구축 31억</h3>
+            <p>전체 80억을 엑소비스에 집중 배정할 경우 발생 가능한 수행·품질·개선 리스크를 분산</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">4</span> H/W 분리 배정 필요성</h2>
+        <div class="split">
+          <div class="card">
+            <h3 class="mini-title">사업 구조 측면</h3>
+            <ul class="bullet">
+              <li>호텔 투자분 80억 전액을 단일 사업자에 집중하는 구조를 방지</li>
+              <li>콘텐츠 영역과 H/W 구축 영역의 책임 범위 및 성과 기준을 명확히 분리</li>
+              <li>향후 장비 개선·확장·유지보수 시 그룹사 중심의 기술 대응 체계 확보</li>
+            </ul>
+          </div>
+          <div class="card emphasis">
+            <h3 class="mini-title">리스크 헤지 측면</h3>
+            <ul class="bullet">
+              <li>H/W 성능, 시스템 연동, 납기 및 품질 리스크를 전문 수행조직이 직접 관리</li>
+              <li>단일 사업자 의존에 따른 비용·기술·운영 종속 위험 완화</li>
+              <li>장애·변경 발생 시 호텔과 그룹사 간 직접 의사결정 및 대응 속도 향상</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">5</span> 추진 일정</h2>
+        <div class="timeline">
+          <div class="timeline-step red">
+            <div class="date">발주 전</div>
+            <b>호텔 C레벨 사전 협의</b>
+            <p>H/W 사업에 대한 당사 지명 필요성 및 그룹사 배정 논리 보고</p>
+          </div>
+          <div class="timeline-step">
+            <div class="date">'26년 3분기</div>
+            <b>사업 범위·사양 확정</b>
+            <p>H/W, 콘텐츠, 인테리어 및 인터페이스 범위 구체화</p>
+          </div>
+          <div class="timeline-step">
+            <div class="date">'26년 11월 이전</div>
+            <b>구축 사업 발주</b>
+            <p>H/W·콘텐츠 등 구축 범위를 일괄 발주</p>
+          </div>
+          <div class="timeline-step">
+            <div class="date">구축 이후</div>
+            <b>운영 계약 별도 추진</b>
+            <p>운영 범위·SLA·비용을 별도 협의 후 계약</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">6</span> 핵심 요청사항</h2>
+        <div class="decision">
+          <div class="badge">必</div>
+          <div>
+            <h3>발주 전 호텔 C레벨 대상 당사 지명 요청</h3>
+            <p>
+              H/W 31억 원 규모를 그룹사에 배정할 수 있도록,
+              발주 이전에 호텔 의사결정권자에게 당사의 전문성·책임수행 체계·리스크 분산 효과를 설명하고
+              지명 방식의 사업 추진 협조를 확보해야 한다.
+            </p>
+          </div>
+          <div class="action">사전 경영진 협의 필요</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="num">7</span> 종합 의견</h2>
+        <div class="card soft">
+          부여 미디어 전시관은 <b>총사업비 190억 원</b>으로 추진되며,
+          호텔 투자분 180억 원 중 전시 관련 80억 원은
+          <b>콘텐츠·인테리어 49억 원과 H/W 31억 원으로 분리 발주</b>하는 구조가 적정하다.
+          이는 내부 투자심의 부담을 완화하는 동시에 H/W 구축을 그룹사에 배정하여
+          품질·납기·유지보수 리스크를 헤지하기 위한 방안이다.
+          따라서 <b>2026년 11월 이전 발주에 앞서 호텔 C레벨을 대상으로 당사 지명 협조를 선제적으로 요청</b>해야 한다.
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span>부여 미디어 전시관 사업 추진 보고</span>
+      <span>Confidential · 내부 검토용</span>
+    </footer>
+  </main>
+</body>
+</html>

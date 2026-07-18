@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CX본부 상반기 실적 보고회 요약</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #e6eaf0;
+      --primary: #1d4ed8;
+      --primary-soft: #e8f0ff;
+      --green: #0f766e;
+      --orange: #b45309;
+      --red: #b91c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px 72px; }
+    .hero {
+      background: linear-gradient(135deg, #173b8f, #2563eb 52%, #60a5fa);
+      color: white;
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: 0 20px 45px rgba(37, 99, 235, .22);
+    }
+    .hero .eyebrow { font-weight: 700; opacity: .9; letter-spacing: .04em; }
+    h1 { margin: 10px 0 12px; font-size: 38px; line-height: 1.2; }
+    .hero p { margin: 0; max-width: 850px; font-size: 18px; opacity: .95; }
+    .grid { display: grid; gap: 18px; }
+    .kpi { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 22px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, .05);
+    }
+    .kpi .card { border: 0; }
+    .label { color: var(--muted); font-size: 14px; font-weight: 700; }
+    .num { margin-top: 8px; font-size: 30px; font-weight: 850; color: var(--primary); }
+    section { margin-top: 26px; }
+    h2 { margin: 0 0 14px; font-size: 26px; }
+    h3 { margin: 0 0 10px; font-size: 20px; }
+    ul { margin: 10px 0 0; padding-left: 22px; }
+    li { margin: 5px 0; }
+    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .badge {
+      display: inline-block;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .quote {
+      border-left: 5px solid var(--primary);
+      background: #f8fbff;
+      padding: 18px 20px;
+      border-radius: 16px;
+      font-size: 19px;
+      font-weight: 800;
+      margin: 10px 0 0;
+    }
+    .keywords { display: flex; flex-wrap: wrap; gap: 10px; }
+    .keywords span {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .summary-box {
+      background: #111827;
+      color: white;
+      border-radius: 24px;
+      padding: 28px;
+      margin-top: 28px;
+    }
+    .summary-box h2 { color: white; }
+    .summary-box p { margin: 0; font-size: 21px; font-weight: 800; }
+    .footer { color: var(--muted); font-size: 13px; margin-top: 26px; text-align: center; }
+    @media (max-width: 760px) {
+      .hero { padding: 28px; border-radius: 22px; }
+      h1 { font-size: 30px; }
+      .kpi, .two { grid-template-columns: 1fr; }
+      .wrap { padding: 24px 14px 48px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="hero">
+      <div class="eyebrow">CX본부 · 2026년 상반기 실적 보고회</div>
+      <h1>상반기 실적 및 하반기 추진전략 요약</h1>
+      <p>AI, 데이터센터, 대외사업 확대를 중심으로 성장 기반을 마련하고, 하반기에는 수주를 매출과 이익으로 연결하는 실행력이 핵심 과제로 제시되었습니다.</p>
+    </div>
+
+    <div class="grid kpi">
+      <div class="card"><div class="label">수주</div><div class="num">전년 대비 +114%</div><p>약 676억 증가. 목표 대비로는 50%에 다소 못 미치는 수준.</p></div>
+      <div class="card"><div class="label">매출</div><div class="num">전년 대비 +14%</div><p>상반기 목표 대비 약 90% 수준 달성.</p></div>
+      <div class="card"><div class="label">영업이익률</div><div class="num">7.7% → 8.7%</div><p>전년 대비 약 33억 증가. 수익성은 개선 흐름.</p></div>
+    </div>
+
+    <section class="card">
+      <h2>1. 본부 전체 핵심 메시지</h2>
+      <ul>
+        <li>상반기는 전년 대비 수주, 매출, 영업이익 모두 개선되었습니다.</li>
+        <li>하반기는 단순 매출 확대보다 <strong>수익성 개선</strong>이 중요합니다.</li>
+        <li>매입률 절감, 고정비 절감, 사업 구조 개선이 핵심 과제입니다.</li>
+        <li>12월 집중 매출을 앞당겨 인식할 수 있는 방안도 검토 필요합니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. 부문별 요약</h2>
+      <div class="grid two">
+        <div class="card">
+          <span class="badge">클라우드 / 데이터센터</span>
+          <h3>AI 시대 인프라 성장축</h3>
+          <ul>
+            <li>2030년까지 데이터센터 12개 운영 목표</li>
+            <li>연간 데이터센터 매출 5,000억 규모 목표</li>
+            <li>수도권 Edge 데이터센터 추가 확보 추진</li>
+            <li>GPU 고밀도 인프라, 액침냉각 등 기술 확보 필요</li>
+            <li>운영 플랫폼 외부 확장형으로 전환</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="badge">클라우드 사업</span>
+          <h3>대외사업과 AI 결합</h3>
+          <ul>
+            <li>멀티클라우드 기반 대외사업 확대</li>
+            <li>AWS 공동영업 강화</li>
+            <li>기존 데이터센터 입주 고객 대상 인프라 구축사업 발굴</li>
+            <li>클라우드 + AI 패키지 제안 강화</li>
+            <li>그룹 클라우드 전환율 및 Physical AI 사업 검토</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="badge">모빌리티</span>
+          <h3>철도·도로·자율주행 고도화</h3>
+          <ul>
+            <li>철도 및 도로 인프라 SI 사업 지속</li>
+            <li>자율주행 셔틀 국토부 인증 및 관광형 서비스 확대</li>
+            <li>AI 영상분석 기반 교통·철도 안전 솔루션 확대</li>
+            <li>Open Loop 교통카드, 부산교통공사 사업 추진</li>
+            <li>AI 기반 하이패스·해외 수출 사업 기회 탐색</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="badge">스마트팩토리·물류</span>
+          <h3>대외 수주와 기술 경쟁력 확보</h3>
+          <ul>
+            <li>상반기 실적은 부족하나 전년 대비 개선 전망</li>
+            <li>사전 컨설팅, 파트너 공동영업, 기존 고객 추가 사업 발굴</li>
+            <li>Digital Twin, AI 공정분석, AMR·로봇 기반 자동화 추진</li>
+            <li>카펙발레오 약 79.5억 물류자동화 수주 사례</li>
+            <li>스마트 인프라 영역에서는 AI 음성인식 등 신규 기술 확보</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="badge">전략영업</span>
+      <h2>3. 대외사업 확대 전략</h2>
+      <ul>
+        <li>기존 그룹사 중심에서 금융, 제조, 공공, 데이터센터, 스마트팩토리 등 외부 고객으로 확대합니다.</li>
+        <li>새마을금고, 수협, KG ICT, HD현대, 파라다이스 등을 주요 타깃으로 언급했습니다.</li>
+        <li>부문별 기술조직과 전략영업 간 협업이 수주 확률을 높이는 핵심 요소로 강조되었습니다.</li>
+        <li>수주가 매출로 직결되므로 하반기에는 3,000억~4,000억 규모 수주를 목표로 강한 영업 드라이브가 필요합니다.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>4. 전체 키워드</h2>
+      <div class="keywords">
+        <span>AI</span><span>데이터센터</span><span>대외사업 확대</span><span>클라우드 전환</span><span>수익성 개선</span><span>기술 경쟁력</span><span>Digital Twin</span><span>Physical AI</span><span>협업</span><span>수주 확대</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. 본부장 메시지 정리</h2>
+      <ul>
+        <li>상반기는 성장 기반을 마련한 시기입니다.</li>
+        <li>하반기는 수주를 매출과 이익으로 연결해야 합니다.</li>
+        <li>AI를 각 사업부문에 실질적으로 접목해야 합니다.</li>
+        <li>부문 간 협업과 전략영업 연계가 목표 달성의 핵심입니다.</li>
+      </ul>
+      <div class="quote">“하반기 CX본부의 핵심은 AI와 데이터센터를 성장축으로 삼고, 대외사업 확대와 수익성 개선을 동시에 달성하는 것”</div>
+    </section>
+
+    <div class="summary-box">
+      <h2>한 줄 요약</h2>
+      <p>2026년 하반기 CX본부는 AI·데이터센터·대외사업을 중심으로 성장하고, 수익성 개선을 통해 목표 달성을 추진해야 합니다.</p>
+    </div>
+
+    <div class="footer">Generated summary HTML · CX본부 상반기 실적 보고회</div>
+  </main>
+</body>
+</html>
