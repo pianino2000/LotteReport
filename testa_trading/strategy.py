@@ -62,3 +62,26 @@ def detect_entry_signal(
         return EntrySignal(False, "돌파 거래량 부족 - 가짜 신호 가능성")
 
     return EntrySignal(True, "눌림목 후 5일선 강한 돌파 - 진입 조건 충족", entry_price=float(today["close"]))
+
+
+def compute_entry_signal_series(
+    df: pd.DataFrame,
+    pullback_lookback: int = 5,
+    volume_confirm_ratio: float = 1.5,
+) -> pd.Series:
+    """전체 기간에 대해 detect_entry_signal과 동일한 규칙을 벡터 연산으로 판정한다.
+
+    백테스트/그리드서치처럼 수천 개 구간을 반복 평가할 때 매번 detect_entry_signal을
+    호출하면(O(n^2)) 느리므로, 같은 조건을 한 번에 계산해 불리언 시리즈로 반환한다.
+    """
+    if "ma_short" not in df.columns:
+        df = add_moving_averages(df)
+
+    aligned = (df["ma_short"] > df["ma_mid"]) & (df["ma_mid"] > df["ma_long"])
+    trend_ok = df["close"] >= df["ma_long"]
+    below_short = df["close"] < df["ma_short"]
+    had_pullback = below_short.shift(1).rolling(pullback_lookback, min_periods=1).max().fillna(0).astype(bool)
+    breakout = df["close"] > df["ma_short"]
+    volume_ok = (df["volume_ma20"] > 0) & (df["volume"] >= df["volume_ma20"] * volume_confirm_ratio)
+
+    return aligned & trend_ok & had_pullback & breakout & volume_ok

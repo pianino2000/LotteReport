@@ -6,6 +6,14 @@ from .risk_manager import (
     calculate_fixed_risk_reward,
     PositionManager,
 )
+from .backtest import (
+    TradeResult,
+    run_backtest,
+    summarize_trades,
+    random_sample_backtest,
+    walk_forward_backtest,
+    grid_search,
+)
 
 __all__ = [
     "add_moving_averages",
@@ -14,4 +22,10 @@ __all__ = [
     "TradeSetup",
     "calculate_fixed_risk_reward",
     "PositionManager",
+    "TradeResult",
+    "run_backtest",
+    "summarize_trades",
+    "random_sample_backtest",
+    "walk_forward_backtest",
+    "grid_search",
 ]
